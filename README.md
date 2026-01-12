@@ -26,7 +26,6 @@ blog/
 ├── categories/              # 分类页面
 ├── projects/                # 项目页面
 ├── archive/                 # 归档页面
-├── en/                      # 英文版内容
 ├── public/                  # 静态资源目录
 │   └── header.svg           # 彩色条装饰
 ├── index.md                 # 首页入口
@@ -81,7 +80,7 @@ posts/2024/learning-vue.md
 
 每篇文章的开头需要添加 **YAML Frontmatter** 来定义元数据：
 
-```markdown
+````markdown
 ---
 title: 文章标题
 date: 2024-12-30
@@ -94,19 +93,6 @@ tags:
 ---
 
 # 这是文章的正文内容
-
-开始写作吧！
-```
-
-### 3. Frontmatter 字段说明
-
-| 字段 | 类型 | 必填 | 说明 |
-|------|------|------|------|
-| `title` | String | ✅ | 文章标题，会显示在列表和页面中 |
-| `date` | Date | ✅ | 发布日期，格式：`YYYY-MM-DD` |
-| `category` | String | ❌ | 文章分类，如：技术、生活、随笔 |
-| `author` | String | ❌ | 作者名称 |
-| `tags` | Array | ❌ | 标签列表 |
 
 ### 4. 文章示例
 
@@ -143,22 +129,7 @@ const state = reactive({ name: 'Vue 3' })
 
 Vue 3 是一个非常棒的框架！
 ```
-
----
-
-## 🌐 多语言支持
-
-项目支持中英文双语：
-
-- **中文内容**：放在根目录（如 `posts/`, `about/`）
-- **英文内容**：放在 `en/` 目录下（如 `en/posts/`, `en/about/`）
-
-### 添加英文文章
-
-```bash
-# 在 en/posts/ 目录下创建
-en/posts/my-english-post.md
-```
+````
 
 ---
 
@@ -172,13 +143,13 @@ en/posts/my-english-post.md
 export default defineConfig({
   // 站点标题（显示在浏览器标签页）
   title: "你的网站名称",
-  
+
   // 站点描述（SEO）
   description: "网站描述",
-  
+
   // 如果部署到子路径，设置 base
   // base: '/your-repo-name/',
-})
+});
 ```
 
 ### 主题配置
@@ -187,16 +158,16 @@ export default defineConfig({
 themeConfig: {
   // Logo（显示在 header）
   logo: '/header.svg',
-  
+
   // 站点标题（显示在 header）
   siteTitle: 'huanjun',
-  
+
   // 首页标题
   homeTitle: '文章列表',
-  
+
   // 作者信息
   author: 'huanjun',
-  
+
   // 导航菜单
   nav: [
     { text: '首页', link: '/' },
@@ -204,7 +175,7 @@ themeConfig: {
     { text: '关于', link: '/about/' },
     { text: '归档', link: '/archive/' }
   ],
-  
+
   // 页脚配置
   footer: {
     copyright: '© 2024 huanjun. All rights reserved.',
@@ -213,7 +184,7 @@ themeConfig: {
       { text: 'RSS', link: '/feed.xml' }
     ]
   },
-  
+
   // 社交链接
   socialLinks: [
     { icon: 'github', link: 'https://github.com/yourname' }
@@ -227,10 +198,25 @@ themeConfig: {
 
 ```typescript
 head: [
-  ['link', { rel: 'icon', href: '/favicon.ico' }],
-  ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' }],
-  ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }],
-]
+  ["link", { rel: "icon", href: "/favicon.ico" }],
+  [
+    "link",
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "32x32",
+      href: "/favicon-32x32.png",
+    },
+  ],
+  [
+    "link",
+    {
+      rel: "apple-touch-icon",
+      sizes: "180x180",
+      href: "/apple-touch-icon.png",
+    },
+  ],
+];
 ```
 
 将图标文件放在 `public/` 目录下。
@@ -246,17 +232,9 @@ locales: {
       homeTitle: '文章列表',
       nav: [/* 中文导航 */]
     }
-  },
-  en: {
-    label: 'English',
-    lang: 'en',
-    link: '/en/',
-    themeConfig: {
-      homeTitle: 'Posts',
-      nav: [/* 英文导航 */]
-    }
   }
 }
+
 ```
 
 ---
@@ -269,11 +247,11 @@ locales: {
 
 ```css
 :root {
-  --color-bg: #ffffff;           /* 背景色 */
-  --color-text: #1a1a1a;         /* 文字颜色 */
-  --color-accent: #ed1c24;       /* 强调色（红色） */
-  --color-border: #1a1a1a;       /* 边框颜色 */
-  --font-mono: 'IBM Plex Mono';  /* 等宽字体 */
+  --color-bg: #ffffff; /* 背景色 */
+  --color-text: #1a1a1a; /* 文字颜色 */
+  --color-accent: #ed1c24; /* 强调色（红色） */
+  --color-border: #1a1a1a; /* 边框颜色 */
+  --font-mono: "IBM Plex Mono"; /* 等宽字体 */
 }
 ```
 
@@ -291,9 +269,9 @@ locales: {
 
 ```typescript
 export default defineConfig({
-  base: '/your-repo-name/',
+  base: "/your-repo-name/",
   // ...
-})
+});
 ```
 
 2. 构建并推送到 `gh-pages` 分支。
@@ -301,24 +279,5 @@ export default defineConfig({
 ### 部署到 Vercel / Netlify
 
 直接连接 Git 仓库，选择 VitePress 框架即可自动构建。
-
----
-
-## 📝 常用命令速查
-
-| 命令 | 说明 |
-|------|------|
-| `npm run dev` | 启动开发服务器 |
-| `npm run build` | 构建生产版本 |
-| `npm run preview` | 预览构建结果 |
-
----
-
-## 💡 小贴士
-
-1. **热更新**：开发模式下，修改文件会自动刷新页面
-2. **图片资源**：将图片放在 `public/` 目录下，然后使用 `/image.png` 引用
-3. **Markdown 增强**：支持在 Markdown 中使用 Vue 组件
-4. **SEO 友好**：frontmatter 中的 `title` 和 `description` 会自动生成 meta 标签
 
 ---
