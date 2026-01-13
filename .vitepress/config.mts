@@ -11,6 +11,13 @@ import type { ThemeConfig } from "./theme/types";
  */
 
 export default defineConfig({
+  // Vite dev server
+  vite: {
+    server: {
+      port: 3030,
+      strictPort: true,
+    },
+  },
   // 站点标题（显示在浏览器标签页）
   title: "huanjun",
 

@@ -52,8 +52,8 @@ function resolveImagePath(imagePath: string, postUrl: string): string {
   return baseDir + cleanPath
 }
 
-// 支持两种结构: posts/*.md 和 posts/*/index.md
-export default createContentLoader(['posts/*.md', 'posts/*/index.md'], {
+// 支持三种结构: posts/*.md, posts/*/index.md, posts/*/*.md
+export default createContentLoader(['posts/*.md', 'posts/*/index.md', 'posts/*/*.md'], {
   excerpt: '<!--more-->',
   transform(raw): Post[] {
     return raw
