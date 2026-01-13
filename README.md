@@ -94,6 +94,33 @@ tags:
 
 # 这是文章的正文内容
 
+### 3. 首页右侧封面图（简要处）
+
+首页卡片右侧图片来自 **摘要中的第一张图片**。请在 `<!--more-->` 之前放一张图片，第一张图片会被当作封面图展示。
+
+图片路径写法：
+- 同目录图片：`![alt](./image.png)` 或 `![alt](image.png)`
+- public 目录图片：`![alt](/your-image.png)`
+
+示例：
+
+```markdown
+---
+title: 我的 Vue 3 学习笔记
+date: 2024-12-30
+category: 技术
+author: huanjun
+tags:
+  - Vue
+---
+
+这里是摘要内容。
+![封面图](./cover.png)
+<!--more-->
+
+正文内容从这里开始...
+```
+
 ### 4. 文章示例
 
 ```markdown

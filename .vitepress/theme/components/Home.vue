@@ -89,9 +89,10 @@ const formatDate = (dateStr: string) => {
 }
 
 .post-title {
-  font-family: var(--font-mono);
+  font-family: var(--font-cursive);
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 800;
+  font-style: italic;
   margin: 0;
 }
 
@@ -210,4 +211,3 @@ const formatDate = (dateStr: string) => {
   }
 }
 </style>
-
