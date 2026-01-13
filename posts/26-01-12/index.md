@@ -1,17 +1,22 @@
 ---
-title: 日线均势回踩确认模型
+title: Daily Trend Pullback Confirmation Model
 date: 2026-01-13
 category: 股票
 author: huanjun
 ---
 
-**一、环境过滤**
+10 日线均势回踩确认模型
+
+## **一、环境过滤**
 
 满足其中 2 条即可：
 
 1. 上证指数 未连续 2 天放量下跌
+
 2. 当天涨跌家数接近或大于 1:1
+
 3. 无明显系统性利空
+
 4. 不满足 → 当天不做任何新开仓
 
 ![alt text](image.png)

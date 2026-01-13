@@ -12,10 +12,10 @@
   "author": "huanjun",
   "license": "MIT",
   "devDependencies": {
-    "vitepress": "^1.5.0",
     "vue": "^3.5.13"
   },
   "dependencies": {
-    "medium-zoom": "^1.1.0"
+    "vitepress": "^1.6.4",
+    "vitepress-theme-maple": "^1.0.3"
   }
 }

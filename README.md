@@ -248,29 +248,11 @@ head: [
 
 将图标文件放在 `public/` 目录下。
 
-### 多语言配置
-
-```typescript
-locales: {
-  root: {
-    label: '中文',
-    lang: 'zh-CN',
-    themeConfig: {
-      homeTitle: '文章列表',
-      nav: [/* 中文导航 */]
-    }
-  }
-}
-
-```
-
----
-
 ## 🎨 自定义样式
 
 ### 修改主题颜色
 
-编辑 `.vitepress/theme/styles/main.css` 中的 CSS 变量：
+新建 `.vitepress/theme/custom.css` 并覆盖 CSS 变量：
 
 ```css
 :root {
@@ -282,9 +264,15 @@ locales: {
 }
 ```
 
-### 修改布局
+然后在 `.vitepress/theme/index.ts` 中引入：
 
-编辑 `.vitepress/theme/Layout.vue` 来自定义页面布局。
+```ts
+import Theme from 'vitepress-theme-maple'
+import 'vitepress-theme-maple/styles'
+import './custom.css'
+
+export default Theme
+```
 
 ---
 
